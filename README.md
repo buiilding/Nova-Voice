@@ -74,6 +74,9 @@ conda activate nova-voice
 cd frontend
 npm install
 
+# Run Build
+npm run build
+
 # Launch Electron app
 npm run electron
 ```
@@ -260,5 +263,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Nova Voice** - Making speech accessible through real-time AI-powered transcription and translation.
+
 
 
