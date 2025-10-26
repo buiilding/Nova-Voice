@@ -1,0 +1,50 @@
+# ===========================================
+# NOVA VOICE - Combined Backend Requirements
+# ===========================================
+# This file combines requirements from all backend services:
+# - Gateway (WebSocket server)
+# - STT Worker (Speech-to-text)
+# - Translation Worker (Language translation)
+#
+# Install with: pip install -r requirements.txt
+
+# ===========================================
+# CORE WEB & ASYNC (All Services)
+# ===========================================
+redis==5.0.1
+aiohttp==3.9.1
+aiohttp-cors==0.7.0
+python-dotenv==1.0.0
+
+# ===========================================
+# GATEWAY SERVICE
+# ===========================================
+websockets==12.0
+numpy==1.24.3
+scipy==1.11.3
+webrtcvad==2.0.10
+watchdog
+PyJWT
+pydub==0.25.1
+
+# ===========================================
+# STT WORKER (Speech-to-Text)
+# ===========================================
+faster-whisper==1.0.3
+torch==2.8.0
+torchaudio
+psutil==5.9.6
+
+# ===========================================
+# TRANSLATION WORKER (Language Translation)
+# ===========================================
+transformers==4.35.2
+accelerate
+sentencepiece==0.2.1
+protobuf==6.32.0
+
+# ===========================================
+# OPTIONAL PACKAGES
+# ===========================================
+# For 8-bit quantization (reduces memory usage in translation):
+# bitsandbytes==0.41.3

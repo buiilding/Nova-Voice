@@ -1,0 +1,55 @@
+# ===========================================
+# NOVA VOICE - Conda Environment
+# ===========================================
+# Automated setup: ./setup-conda.sh
+# Manual setup: conda env create -f environment.yml
+# Activate with: conda activate nova-voice
+
+name: nova-voice
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  # Python version
+  - python=3.10
+
+  # Core dependencies
+  - pip
+  - redis-py
+  - numpy
+  - scipy
+
+  # Audio processing
+  - pydub
+  - psutil
+
+  # PyTorch ecosystem (CPU versions - change to cuda versions for GPU)
+  - pytorch::pytorch=2.8.0
+  - pytorch::torchaudio
+
+  # Optional: CUDA versions (uncomment for GPU support)
+  # - pytorch::pytorch=2.8.0=*cuda*  # For CUDA 11.8
+  # - pytorch::torchaudio=*cuda*
+
+  # Pip packages (installed via pip)
+  - pip:
+    # Web and async
+    - websockets==12.0
+    - aiohttp==3.9.1
+    - aiohttp-cors==0.7.0
+    - python-dotenv==1.0.0
+
+    # Audio processing
+    - webrtcvad==2.0.10
+
+    # Utilities
+    - watchdog
+    - PyJWT
+
+    # Machine learning
+    - faster-whisper==1.0.3
+    - transformers==4.35.2
+    - accelerate
+    - sentencepiece==0.2.1
+    - protobuf==6.32.0

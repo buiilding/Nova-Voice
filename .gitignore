@@ -1,0 +1,229 @@
+# Nova Voice - Git Ignore Configuration
+# https://help.github.com/articles/ignoring-files/
+
+# ===========================================
+# DEPENDENCIES & BUILD ARTIFACTS
+# ===========================================
+
+# Node.js dependencies
+node_modules/
+/.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python dependencies and cache
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Next.js build output
+.next/
+/out/
+/build/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# ===========================================
+# ENVIRONMENT & SECRETS
+# ===========================================
+
+# Environment variables (NEVER commit actual .env files)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+
+# ===========================================
+# DEVELOPMENT & TESTING
+# ===========================================
+
+# Testing and coverage
+htmlcov/
+.coverage
+.coverage.*
+.tox/
+.nox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Debug logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ===========================================
+# BUILD & DISTRIBUTION
+# ===========================================
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Executables and installers
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.out
+
+# ===========================================
+# LARGE MEDIA FILES
+# ===========================================
+
+# Audio/video files (can be very large)
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flac
+*.aac
+*.ogg
+*.wma
+*.webm
+*.m4a
+*.m4v
+
+# Image files (can be large)
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.tif
+*.svg
+*.ico
+*.webp
+*.heic
+*.raw
+
+# Documents and archives
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# ===========================================
+# DATABASE & DATA FILES
+# ===========================================
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# Large data files
+*.csv
+*.xml
+*.parquet
+*.feather
+*.hdf5
+*.h5
+
+# Redis dumps
+dump.rdb
+
+# ===========================================
+# CONTAINER & INFRASTRUCTURE
+# ===========================================
+
+# Docker volumes
+volumes/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# ===========================================
+# LEGACY & UNUSED
+# ===========================================
+
+# Legacy project references (remove if not needed)
+Nova-UI/dist/
+Nova-UI/test_audio_listen/node_modules/
+
+# ===========================================
+# EXCEPTIONS (FILES TO INCLUDE)
+# ===========================================
+
+# Include these template files (negate the .env* ignore above):
+!backend/infra/.env.example
+!frontend/.env.example
+
+# Include shared utility files
+!backend/shared/
+

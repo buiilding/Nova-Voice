@@ -1,0 +1,14 @@
+websockets==12.0
+redis==5.0.1
+numpy==1.24.3
+scipy==1.11.3
+aiohttp==3.9.1
+aiohttp-cors==0.7.0
+webrtcvad==2.0.10
+torch
+torchaudio
+watchdog
+python-dotenv==1.0.0
+PyJWT
+pydub==0.25.1
+
