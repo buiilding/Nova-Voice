@@ -87,7 +87,7 @@ The application will automatically connect to the backend services. Choose your 
 - **Audio Source**: Select microphone or system audio
 - **Languages**: Choose source and target languages
 
-## 🎮 Usage Guide
+## Usage Guide
 
 ### Voice Typing Mode
 1. Click the **"Voice Typing"** button (turns blue when active)
@@ -260,4 +260,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Nova Voice** - Making speech accessible through real-time AI-powered transcription and translation.
+
 
