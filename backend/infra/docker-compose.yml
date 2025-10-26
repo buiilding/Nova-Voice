@@ -1,0 +1,148 @@
+version: '3.8'
+
+services:
+  # Redis for queuing and pub/sub
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - speech_network
+
+  # Gateway service - handles WebSocket connections (development)
+  gateway:
+    build:
+      context: ..
+      dockerfile: gateway/Dockerfile.dev
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    volumes:
+      - ../gateway:/app
+      - ../shared:/app/shared
+      - /app/__pycache__
+    ports:
+      - "${GATEWAY_PORT:-5026}:${GATEWAY_PORT:-5026}"
+      - "${HEALTH_PORT:-8080}:${HEALTH_PORT:-8080}"
+    environment:
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+      - GATEWAY_PORT=${GATEWAY_PORT:-5026}
+      - HEALTH_PORT=${HEALTH_PORT:-8080}
+      - SILENCE_THRESHOLD_SECONDS=${SILENCE_THRESHOLD_SECONDS:-1.0}
+      - SAMPLE_RATE=${SAMPLE_RATE:-16000}
+      - WEBRTC_SENSITIVITY=${WEBRTC_SENSITIVITY:-3}
+      - SILERO_SENSITIVITY=${SILERO_SENSITIVITY:-0.7}
+      - PRE_SPEECH_BUFFER_SECONDS=${PRE_SPEECH_BUFFER_SECONDS:-2.0}
+      - MINIMUM_NEW_AUDIO_SECONDS=${MINIMUM_NEW_AUDIO_SECONDS:-1.0}
+      - MAX_QUEUE_DEPTH=${MAX_QUEUE_DEPTH:-100}
+      - MAX_AUDIO_BUFFER_SECONDS=${MAX_AUDIO_BUFFER_SECONDS:-10.0}
+      - DEFAULT_SOURCE_LANGUAGE=${DEFAULT_SOURCE_LANGUAGE:-en}
+      - DEFAULT_TARGET_LANGUAGE=${DEFAULT_TARGET_LANGUAGE:-vi}
+      - SESSION_EXPIRATION_SECONDS=${SESSION_EXPIRATION_SECONDS:-900}
+      - ENABLE_AUDIO_ENHANCEMENT=${ENABLE_AUDIO_ENHANCEMENT:-true}
+      - AUDIO_VOLUME_BOOST_DB=${AUDIO_VOLUME_BOOST_DB:-7.0}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - speech_network
+    deploy:
+      replicas: 1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${HEALTH_PORT:-8080}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    stdin_open: true
+    tty: true
+
+  # STT Worker service - speech-to-text transcription (development)
+  stt_worker:
+    build:
+      context: ..
+      dockerfile: stt_worker/Dockerfile.dev
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    volumes:
+      - ../stt_worker:/app
+      - ../shared:/app/shared
+      - /app/__pycache__
+    environment:
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+      - CONSUMER_GROUP=${CONSUMER_GROUP:-stt_workers}
+      - TRANSCRIPTIONS_STREAM=${TRANSCRIPTIONS_STREAM:-transcriptions}
+      - MODEL_SIZE=${MODEL_SIZE:-large-v3}
+      - DEVICE=${DEVICE:-cuda}
+      - BEAM_SIZE=${BEAM_SIZE:-1}
+      - VAD_FILTER=${VAD_FILTER:-false}
+      - BEST_OF=${BEST_OF:-1}
+      - PENDING_ACK_TTL=${PENDING_ACK_TTL:-300}
+      - HEALTH_PORT_STT=${HEALTH_PORT_STT:-8081}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - speech_network
+    deploy:
+      replicas: 1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${HEALTH_PORT_STT:-8081}/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 60s
+    stdin_open: true
+    tty: true
+
+  # Translation Worker service - text translation (development)
+  translation_worker:
+    build:
+      context: ..
+      dockerfile: translation_worker/Dockerfile.dev
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    volumes:
+      - ../translation_worker:/app
+      - ../shared:/app/shared
+      - /app/__pycache__
+    environment:
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+      - NLLB_MODEL=${NLLB_MODEL:-facebook/nllb-200-distilled-600M}
+      - FORCE_CPU=${FORCE_CPU:-false}
+      - MAX_SEQUENCE_LENGTH=${MAX_SEQUENCE_LENGTH:-512}
+      - BATCH_SIZE=${BATCH_SIZE:-1}
+      - HEALTH_PORT_TRANSLATION=${HEALTH_PORT_TRANSLATION:-8082}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - speech_network
+    deploy:
+      replicas: 1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${HEALTH_PORT_TRANSLATION:-8082}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    stdin_open: true
+    tty: true
+
+networks:
+  speech_network:
+    driver: bridge
+
+volumes:
+  redis_data:
+    driver: local

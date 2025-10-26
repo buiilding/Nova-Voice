@@ -1,3 +1,0 @@
-maybe like, when the transcription is finished, put the transcription result into the prompt of the next transcription job and tell the llm to keep transcribing.
-we will parse the new audio that hasnt been transcribed, with the transcribed result from the previous job already as a prompt for the current job.
-we can reuse previous job transcription and parse less audio, faster transcribing.

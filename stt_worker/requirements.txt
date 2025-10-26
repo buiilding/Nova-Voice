@@ -1,9 +1,0 @@
-faster-whisper==1.0.3
-redis==5.0.1
-numpy==1.24.3
-torch
-torchaudio
-aiohttp==3.9.1
-aiohttp-cors==0.7.0
-pydub
-psutil

@@ -1,5 +1,0 @@
-# Client GUI dependencies
-PyQt5
-pyperclip
-pyaudio
-websockets==12.0

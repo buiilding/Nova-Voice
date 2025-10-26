@@ -1,0 +1,26 @@
+{
+  "appId": "com.nova.ui",
+  "productName": "Nova Voice",
+  "icon": "public/favicon3-large.png",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "out/**/*",
+    "electron/**/*",
+    "node_modules/**/*"
+  ],
+  "mac": {
+    "category": "public.app-category.productivity"
+  },
+  "win": {
+    "target": "nsis"
+  },
+  "nsis": {
+    "deleteAppDataOnUninstall": true,
+    "include": "installer.nsh"
+  },
+  "linux": {
+    "target": "AppImage"
+  }
+}
