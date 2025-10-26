@@ -19,7 +19,7 @@ The system uses a microservice architecture with:
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │ Electron Client │────│    Gateway      │────│     Redis       │
-│  (WebSocket)    │    │  (WebSocket)    │    │  (Streams/Queue) │
+│  (WebSocket)    │    │  (WebSocket)    │    │  (Streams/Queue)│
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                                 │                        │
                                 │                        │
@@ -260,3 +260,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Nova Voice** - Making speech accessible through real-time AI-powered transcription and translation.
+
