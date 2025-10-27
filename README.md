@@ -215,7 +215,7 @@ Redis protocol: ~10KB/message
 4. **Clean Abstractions**: Repository pattern, dependency injection, typed everything
 5. **Extensible Design**: Add new models, languages, or processing steps easily
 
-### Quick Start (Development)
+### Quick Start
 
 ```bash
 # Clone and setup
@@ -416,3 +416,4 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
