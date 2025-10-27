@@ -2,7 +2,7 @@
 
 **A production-ready, horizontally scalable speech-to-text and translation system built with microservices architecture**
 
-Built by [@PeterBui](https://github.com/buiilding) with AI assistance from Cursor, Claude, ChatGPT, Gemini, and CodeRabbit
+Built by [@PeterBui](https://github.com/PeterBui) with AI assistance from Cursor, Claude, ChatGPT, and CodeRabbit
 
 ## 🎯 Project Scope
 
@@ -12,22 +12,7 @@ This repository contains the complete source code for a distributed speech proce
 
 ## 🏗️ Technical Architecture
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Electron Client │────│    Gateway      │────│     Redis       │
-│  (WebSocket)    │    │  (WebSocket)    │    │  (Streams/Queue)│
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │                        │
-                                │                        │
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│  STT Workers    │────│     Redis       │────│  Translation    │
-│ (Faster-Whisper)│    │  (Pub/Sub)      │    │    Workers      │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
-
-## 🚀 Quick Start
-
-### Prerequisites
+### Why This Architecture Matters
 
 This isn't just another speech-to-text demo. It's a fully distributed, queue-based system designed to handle production workloads with:
 
@@ -102,30 +87,35 @@ This isn't just another speech-to-text demo. It's a fully distributed, queue-bas
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 2. Start Frontend Application
+### Production-Ready Features
 
-```bash
-# Install dependencies
-cd frontend
-npm install
+```yaml
+Scalability:
+  - Independent scaling of gateway/STT/translation workers
+  - Redis Streams for backpressure handling
+  - Multi-GPU support with device assignment
+  - Connection pooling and session management
 
-# Run Build
-npm run build
+Performance:
+  - WebRTC VAD for efficient audio segmentation
+  - CTranslate2 quantization (INT8/FP16)
+  - Batch processing for translation workloads
+  - Memory-mapped model loading
 
-# Launch Electron app
-npm run electron
+Observability:
+  - Structured logging with correlation IDs
+  - Health check endpoints per service
+  - Prometheus-compatible metrics (ready to implement)
+  - Distributed tracing hooks (OpenTelemetry ready)
+
+Reliability:
+  - Graceful shutdown with drain support
+  - Circuit breaker pattern for external services
+  - Automatic reconnection with exponential backoff
+  - Dead letter queues for failed messages
 ```
 
-### 3. Start Using Nova Voice
-
-The application will automatically connect to the backend services. Choose your mode:
-
-- **Voice Typing**: Click "Voice Typing" to start speech-to-text input
-- **Live Subtitles**: Click "Live Subtitle" for overlay display
-- **Audio Source**: Select microphone or system audio
-- **Languages**: Choose source and target languages
-
-## Usage Guide
+## 🚀 Scaling Capabilities
 
 ### Benchmarks (on consumer hardware)
 
@@ -411,9 +401,6 @@ This project was accelerated using:
 
 ---
 
-**Nova Voice** - Making speech accessible through real-time AI-powered transcription and translation.
+**Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
-
-
-
-
+*This is not an app, it's an architecture.*
