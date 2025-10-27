@@ -4,7 +4,7 @@
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
-*Distributed real-time speech-to-text and translation system with voice typing and live subtitles*
+*Distributed real-time speech-to-text and translation system with features including voice typing and live subtitles*
 
 > 🚀 **Actively Developed & Community-Driven**
 >
@@ -215,7 +215,7 @@ Redis protocol: ~10KB/message
 4. **Clean Abstractions**: Repository pattern, dependency injection, typed everything
 5. **Extensible Design**: Add new models, languages, or processing steps easily
 
-### Quick Start (Development)
+### Quick Start
 
 ```bash
 # Clone and setup
@@ -231,6 +231,10 @@ cp backend/.env_example backend/infra/.env
 # Option A: Docker (Recommended)
 cd backend/infra
 docker-compose up --build
+
+# ⏱️ First Run: Model downloads may take 1-5 minutes depending on your network
+# Monitor progress: Docker Desktop → Containers → View logs for stt_worker/translation_worker
+# Models: Whisper large-v3 (~3GB) + NLLB-600M (~2.5GB)
 
 # 🚀 For GPU acceleration (10x faster):
 # - Windows: backend/docs/GPU_SETUP_WINDOWS.md
@@ -267,6 +271,24 @@ npm run electron
 # Verify the complete pipeline is working
 curl http://localhost:8080/health/full
 ```
+
+### ⚠️ Audio Quality & Limitations
+
+**Speech Detection Works Best With:**
+- 🎤 **Clean speech** - Quiet environment, minimal background noise
+- 🎧 **Close-mic audio** - Headset or lapel mic for best isolation
+- 🗣️ **Single speaker** - Clear, distinct speech
+
+**Known Limitations:**
+- ❌ **Background music** may cause false speech detections or reduced accuracy
+- ❌ **Loud ambient noise** can interfere with voice activity detection (VAD)
+- ❌ **Multiple simultaneous speakers** may result in garbled transcriptions
+- ❌ **Very quiet speech** may not be detected (adjust VAD sensitivity in config)
+
+**Tip**: For system audio capture with music/games, results will vary. Best used in voice chat scenarios.
+
+---
+
 ### Prerequisites by Method
 
 **Docker Setup:**

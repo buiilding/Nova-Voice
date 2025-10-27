@@ -32,6 +32,16 @@ cd backend/infra
 docker-compose up --build
 ```
 
+**⏱️ First-time setup:**
+- **Model downloads** may take **1-5 minutes** depending on your network speed
+- Models being downloaded:
+  - Whisper large-v3: ~3GB
+  - NLLB-200-distilled-600M: ~2.5GB
+- **Monitor progress**: 
+  - Docker Desktop → Containers → Select `stt_worker` or `translation_worker` → View logs
+  - Or terminal: `docker compose logs -f stt_worker translation_worker`
+- **Look for**: "Loading model..." and "Model loaded successfully" messages
+
 ### Option 2: Local Python with Conda (Alternative)
 
 ```bash
@@ -87,7 +97,7 @@ pip install -r requirements.txt
 
 ## 🧪 Health Checks
 
-   ```bash
+```bash
 curl http://localhost:8080/health  # Gateway
 curl http://localhost:8081/health  # STT Worker
 curl http://localhost:8082/health  # Translation Worker
@@ -129,7 +139,7 @@ cd backend
 
 For quick Docker management:
 
-   ```bash
+```bash
 cd backend
 
 # Start services with hot reload
@@ -166,6 +176,66 @@ conda env create -f environment.yml
 # Then just run the script
 ./run-services.sh dev
 ```
+
+---
+
+## 🔍 Troubleshooting First Run
+
+### Services Taking Long to Start?
+
+**This is normal!** On first run:
+- **STT Worker** downloads Whisper model (~3GB): 1-3 minutes
+- **Translation Worker** downloads NLLB model (~2.5GB): 1-3 minutes
+- Total first-run time: **3-5 minutes** on average internet
+
+**Monitor progress:**
+   ```bash
+# Watch logs in real-time
+docker compose logs -f stt_worker
+docker compose logs -f translation_worker
+
+# Or in Docker Desktop:
+# Containers → stt_worker/translation_worker → Logs
+```
+
+**What you'll see:**
+```
+stt_worker-1      | Loading Faster-Whisper model: large-v3...
+stt_worker-1      | Downloading model files... (this takes time!)
+stt_worker-1      | ✓ Model loaded successfully on GPU
+```
+
+### Services Ready When:
+- ✅ Gateway: `Starting Gateway Service on port 5026`
+- ✅ STT Worker: `Model loaded successfully`
+- ✅ Translation Worker: `Model loaded successfully`
+- ✅ Health checks: All return `"status": "healthy"`
+
+### Check Health:
+```bash
+curl http://localhost:8080/health  # Gateway
+curl http://localhost:8081/health  # STT Worker
+curl http://localhost:8082/health  # Translation Worker
+```
+
+### ⚠️ Audio Quality Considerations
+
+**Background Music/Noise:**
+- **Speech detection (VAD) works best with clean speech**
+- Background music, loud noise, or multiple speakers may:
+  - Cause false speech detections
+  - Reduce transcription accuracy
+  - Split speech segments incorrectly
+- **Best results**: Quiet environment with clear speech
+- **Tip**: Use headset/microphone close to mouth for better isolation
+
+**Recommended Audio Sources:**
+- 🎤 **Best**: Close-mic headset or lapel mic
+- ✅ **Good**: Desktop microphone in quiet room
+- ⚠️ **Fair**: System audio with minimal background music
+- ❌ **Poor**: System audio with loud music or multiple speakers
+
+---
 
 ## 📚 Documentation
 
