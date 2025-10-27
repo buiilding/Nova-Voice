@@ -386,7 +386,7 @@ GET /metrics
 ## 🏆 Acknowledgments
 
 ### Technologies
-- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)** - Real-time speech recognition inspiration
+- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)** - Real-time speech recognition inspiration by [@Kolja Beigel](https://github.com/KoljaB)
 - **[Faster-Whisper](https://github.com/SYSTRAN/faster-whisper)** - CTranslate2 optimization
 - **[NLLB](https://github.com/facebookresearch/fairseq/tree/nllb)** - State-of-the-art translation
 - **[Redis](https://redis.io/)** - The backbone of our message passing
@@ -404,3 +404,4 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
