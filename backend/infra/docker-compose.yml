@@ -21,7 +21,7 @@ services:
   gateway:
     build:
       context: ..
-      dockerfile: gateway/Dockerfile.dev
+      dockerfile: gateway/Dockerfile
       args:
         BUILDKIT_INLINE_CACHE: 1
     volumes:
@@ -69,7 +69,7 @@ services:
   stt_worker:
     build:
       context: ..
-      dockerfile: stt_worker/Dockerfile.dev
+      dockerfile: stt_worker/Dockerfile
       args:
         BUILDKIT_INLINE_CACHE: 1
     volumes:
@@ -108,7 +108,7 @@ services:
   translation_worker:
     build:
       context: ..
-      dockerfile: translation_worker/Dockerfile.dev
+      dockerfile: translation_worker/Dockerfile
       args:
         BUILDKIT_INLINE_CACHE: 1
     volumes:
