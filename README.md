@@ -1,4 +1,4 @@
-# Nova Voice - Distributed Real-Time Speech Processing Pipeline for voice typing and live subtitle
+# Nova Voice - Distributed Real-Time Speech Processing Pipeline for Voice Typing and Live Subtitle
 
 **A production-ready, horizontally scalable speech-to-text and translation system built with microservices architecture**
 
@@ -392,6 +392,7 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
 
 
 
