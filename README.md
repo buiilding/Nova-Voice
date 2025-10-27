@@ -14,7 +14,7 @@
 >
 > **Areas needing contributors:** GPU acceleration, additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
 
-Built by [@PeterBui](https://github.com/PeterBui) | [@peterbuiCS](https://x.com/peterbuiCS)
+Built by [@PeterBui(github)](https://github.com/buiilding) | [@peterbuiCS(X)](https://x.com/peterbuiCS)
 
 ## 🎯 Project Scope
 
@@ -404,3 +404,4 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
