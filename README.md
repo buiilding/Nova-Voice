@@ -1,8 +1,20 @@
-# Nova Voice - Distributed Real-Time Speech Processing Pipeline for voice typing and live subtitle
+# Nova Voice
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
+[![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
-**A production-ready, horizontally scalable speech-to-text and translation system built with microservices architecture**
+*Distributed real-time speech-to-text and translation system with voice typing and live subtitles*
 
-Built by [@PeterBui](https://github.com/PeterBui) with AI assistance from Cursor, Claude, ChatGPT, and CodeRabbit
+> 🚀 **Actively Developed & Community-Driven**
+>
+> This project is actively maintained and welcomes contributions! Whether you're interested in AI/ML, distributed systems, real-time processing, or desktop applications, there's plenty to work on.
+>
+> **Perfect for learning:** Production-grade patterns, microservices architecture, GPU optimization, real-time streaming, and more.
+>
+> **Areas needing contributors:** GPU acceleration, additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
+
+Built by [@PeterBui](https://github.com/PeterBui)
 
 ## 🎯 Project Scope
 
@@ -247,23 +259,11 @@ npm run electron
 # Verify the complete pipeline is working
 curl http://localhost:8080/health/full
 ```
-
-### Backend Setup Options
-
-Choose the best backend setup for your needs:
-
-| Method | Best For | Pros | Cons |
-|--------|----------|------|------|
-| **Docker** | Production, Development | Isolated, Reproducible, Easy scaling | Requires Docker |
-| **Conda** | AI/ML Development | Optimized for PyTorch/CUDA, Auto GPU detection | Conda required |
-| **Virtual Env** | Lightweight development | Simple, No extra tools | Manual dependency management |
-| **Script Runner** | Quick testing | Auto-setup, One command | Less control |
-
 ### Prerequisites by Method
 
 **Docker Setup:**
 - Docker & Docker Compose
-- 4GB+ RAM, GPU optional
+- 4GB+ RAM, GPU recommended
 
 **Conda Setup:**
 - Miniconda/Anaconda
@@ -274,7 +274,7 @@ Choose the best backend setup for your needs:
 - Python 3.10+
 - pip
 - Redis server
-- 4GB+ RAM, GPU optional
+- 4GB+ RAM, GPU recommended
 
 ### Architecture Decisions
 
@@ -355,8 +355,8 @@ Looking for contributors who appreciate:
 Areas needing expertise:
 - macOS/Linux frontend adaptation
 - Kubernetes operators for auto-scaling
-- Additional language models
-- Performance profiling tools
+- Additional translation language models
+- Additional STT transcription models
 
 ## 📈 Metrics & Monitoring
 
@@ -386,8 +386,8 @@ GET /metrics
 ## 🏆 Acknowledgments
 
 ### Technologies
-- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)** - Real-time speech recognition inspiration
-- **[Faster-Whisper](https://github.com/SYSTRAN/faster-whisper)** - CTranslate2 optimization
+- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)** - Real-time speech recognition inspiration by [@Kolja Beigel](https://github.com/KoljaB)
+- **[Faster-Whisper](https://github.com/SYSTRAN/faster-whisper)** - OpenAI Speech-to-text model
 - **[NLLB](https://github.com/facebookresearch/fairseq/tree/nllb)** - State-of-the-art translation
 - **[Redis](https://redis.io/)** - The backbone of our message passing
 - **[Electron](https://electronjs.org/)** - Desktop platform
