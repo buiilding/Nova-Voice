@@ -12,7 +12,22 @@ This repository contains the complete source code for a distributed speech proce
 
 ## 🏗️ Technical Architecture
 
-### Why This Architecture Matters
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Electron Client │────│    Gateway      │────│     Redis       │
+│  (WebSocket)    │    │  (WebSocket)    │    │  (Streams/Queue)│
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                │                        │
+                                │                        │
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  STT Workers    │────│     Redis       │────│  Translation    │
+│ (Faster-Whisper)│    │  (Pub/Sub)      │    │    Workers      │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
 
 This isn't just another speech-to-text demo. It's a fully distributed, queue-based system designed to handle production workloads with:
 
@@ -87,35 +102,30 @@ This isn't just another speech-to-text demo. It's a fully distributed, queue-bas
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Production-Ready Features
+### 2. Start Frontend Application
 
-```yaml
-Scalability:
-  - Independent scaling of gateway/STT/translation workers
-  - Redis Streams for backpressure handling
-  - Multi-GPU support with device assignment
-  - Connection pooling and session management
+```bash
+# Install dependencies
+cd frontend
+npm install
 
-Performance:
-  - WebRTC VAD for efficient audio segmentation
-  - CTranslate2 quantization (INT8/FP16)
-  - Batch processing for translation workloads
-  - Memory-mapped model loading
+# Run Build
+npm run build
 
-Observability:
-  - Structured logging with correlation IDs
-  - Health check endpoints per service
-  - Prometheus-compatible metrics (ready to implement)
-  - Distributed tracing hooks (OpenTelemetry ready)
-
-Reliability:
-  - Graceful shutdown with drain support
-  - Circuit breaker pattern for external services
-  - Automatic reconnection with exponential backoff
-  - Dead letter queues for failed messages
+# Launch Electron app
+npm run electron
 ```
 
-## 🚀 Scaling Capabilities
+### 3. Start Using Nova Voice
+
+The application will automatically connect to the backend services. Choose your mode:
+
+- **Voice Typing**: Click "Voice Typing" to start speech-to-text input
+- **Live Subtitles**: Click "Live Subtitle" for overlay display
+- **Audio Source**: Select microphone or system audio
+- **Languages**: Choose source and target languages
+
+## Usage Guide
 
 ### Benchmarks (on consumer hardware)
 
@@ -348,6 +358,7 @@ This project was accelerated using:
 
 ---
 
-**Nova Voice** - Building blocks for the next generation of desktop AI assistants.
+**Nova Voice** - Making speech accessible through real-time AI-powered transcription and translation.
 
-*This is not an app, it's an architecture.*
+
+
