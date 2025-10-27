@@ -14,7 +14,7 @@
 >
 > **Areas needing contributors:** GPU acceleration, additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
 
-Built by [@PeterBui](https://github.com/PeterBui)
+Built by [@PeterBui](https://github.com/PeterBui) | [@peterbuiCS](https://x.com/peterbuiCS)
 
 ## 🎯 Project Scope
 
