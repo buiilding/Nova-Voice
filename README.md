@@ -247,18 +247,6 @@ npm run electron
 # Verify the complete pipeline is working
 curl http://localhost:8080/health/full
 ```
-
-### Backend Setup Options
-
-Choose the best backend setup for your needs:
-
-| Method | Best For | Pros | Cons |
-|--------|----------|------|------|
-| **Docker** | Production, Development | Isolated, Reproducible, Easy scaling | Requires Docker |
-| **Conda** | AI/ML Development | Optimized for PyTorch/CUDA, Auto GPU detection | Conda required |
-| **Virtual Env** | Lightweight development | Simple, No extra tools | Manual dependency management |
-| **Script Runner** | Quick testing | Auto-setup, One command | Less control |
-
 ### Prerequisites by Method
 
 **Docker Setup:**
@@ -404,4 +392,5 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
 
