@@ -404,4 +404,3 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
-
