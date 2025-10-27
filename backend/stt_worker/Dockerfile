@@ -27,6 +27,10 @@ RUN pip install --no-cache-dir --timeout=300 --retries=10 -r requirements.txt
 # RUN pip install --no-cache-dir --timeout=600 --retries=20 torch torchaudio
 # RUN pip install --no-cache-dir --timeout=300 --retries=10 -r requirements.txt
 
+# Copy entrypoint script
+COPY stt_worker/entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
 # Set CUDNN library path for PyTorch
 ENV CUDNN_LIBRARY_PATH=/usr/local/lib/python3.10/site-packages/nvidia/cudnn/lib
 ENV LD_LIBRARY_PATH=$CUDNN_LIBRARY_PATH:$LD_LIBRARY_PATH
