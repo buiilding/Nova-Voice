@@ -1,6 +1,18 @@
-# Nova Voice - Distributed Real-Time Speech Processing Pipeline for Voice Typing and Live Subtitle
+# Nova Voice
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
+[![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
-**A production-ready, horizontally scalable speech-to-text and translation system built with microservices architecture**
+*Distributed real-time speech-to-text and translation system with voice typing and live subtitles*
+
+> 🚀 **Actively Developed & Community-Driven**
+>
+> This project is actively maintained and welcomes contributions! Whether you're interested in AI/ML, distributed systems, real-time processing, or desktop applications, there's plenty to work on.
+>
+> **Perfect for learning:** Production-grade patterns, microservices architecture, GPU optimization, real-time streaming, and more.
+>
+> **Areas needing contributors:** GPU acceleration, additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
 
 Built by [@PeterBui](https://github.com/PeterBui)
 
@@ -392,10 +404,3 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
-
-
-
-
-
-
-
