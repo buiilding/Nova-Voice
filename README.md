@@ -4,7 +4,7 @@
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
-*Distributed real-time speech-to-text and translation system with voice typing and live subtitles*
+*Distributed real-time speech-to-text and translation system with features including voice typing and live subtitles*
 
 > 🚀 **Actively Developed & Community-Driven**
 >
@@ -416,4 +416,5 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
 
