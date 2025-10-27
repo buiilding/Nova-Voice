@@ -2,7 +2,7 @@
 
 **A production-ready, horizontally scalable speech-to-text and translation system built with microservices architecture**
 
-Built by [@PeterBui](https://github.com/PeterBui) with AI assistance from Cursor, Claude, ChatGPT, and CodeRabbit
+Built by [@PeterBui](https://github.com/PeterBui)
 
 ## 🎯 Project Scope
 
@@ -392,6 +392,7 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
 
 
 
