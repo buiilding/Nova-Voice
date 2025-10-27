@@ -343,8 +343,8 @@ Looking for contributors who appreciate:
 Areas needing expertise:
 - macOS/Linux frontend adaptation
 - Kubernetes operators for auto-scaling
-- Additional language models
-- Performance profiling tools
+- Additional translation language models
+- Additional STT transcription models
 
 ## 📈 Metrics & Monitoring
 
@@ -392,6 +392,7 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
 
 
 
