@@ -251,7 +251,7 @@ curl http://localhost:8080/health/full
 
 **Docker Setup:**
 - Docker & Docker Compose
-- 4GB+ RAM, GPU optional
+- 4GB+ RAM, GPU recommended
 
 **Conda Setup:**
 - Miniconda/Anaconda
@@ -262,7 +262,7 @@ curl http://localhost:8080/health/full
 - Python 3.10+
 - pip
 - Redis server
-- 4GB+ RAM, GPU optional
+- 4GB+ RAM, GPU recommended
 
 ### Architecture Decisions
 
@@ -392,5 +392,6 @@ This project was accelerated using:
 **Nova Voice** - Building blocks for the next generation of desktop AI assistants.
 
 *This is not an app, it's an architecture.*
+
 
 
