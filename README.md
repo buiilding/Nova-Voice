@@ -232,6 +232,10 @@ cp backend/.env_example backend/infra/.env
 cd backend/infra
 docker-compose up --build
 
+# ⏱️ First Run: Model downloads may take 1-5 minutes depending on your network
+# Monitor progress: Docker Desktop → Containers → View logs for stt_worker/translation_worker
+# Models: Whisper large-v3 (~3GB) + NLLB-600M (~2.5GB)
+
 # 🚀 For GPU acceleration (10x faster):
 # - Windows: backend/docs/GPU_SETUP_WINDOWS.md
 # - Linux: backend/docs/GPU_SETUP_LINUX.md
@@ -267,6 +271,24 @@ npm run electron
 # Verify the complete pipeline is working
 curl http://localhost:8080/health/full
 ```
+
+### ⚠️ Audio Quality & Limitations
+
+**Speech Detection Works Best With:**
+- 🎤 **Clean speech** - Quiet environment, minimal background noise
+- 🎧 **Close-mic audio** - Headset or lapel mic for best isolation
+- 🗣️ **Single speaker** - Clear, distinct speech
+
+**Known Limitations:**
+- ❌ **Background music** may cause false speech detections or reduced accuracy
+- ❌ **Loud ambient noise** can interfere with voice activity detection (VAD)
+- ❌ **Multiple simultaneous speakers** may result in garbled transcriptions
+- ❌ **Very quiet speech** may not be detected (adjust VAD sensitivity in config)
+
+**Tip**: For system audio capture with music/games, results will vary. Best used in voice chat scenarios.
+
+---
+
 ### Prerequisites by Method
 
 **Docker Setup:**
