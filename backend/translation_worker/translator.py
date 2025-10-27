@@ -10,8 +10,8 @@ import logging
 from typing import Optional, Dict, Any
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-from .config import DEVICE
-from .language_mappings import get_nllb_code
+from config import DEVICE
+from language_mappings import get_nllb_code
 
 
 class Translator:

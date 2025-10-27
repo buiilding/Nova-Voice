@@ -15,11 +15,11 @@ import logging
 from typing import Dict, Any, Optional
 import redis.asyncio as redis
 
-from .config import (
+from config import (
     REDIS_URL, AUDIO_JOBS_STREAM, RESULTS_CHANNEL_PREFIX, SESSION_PREFIX,
     MAX_QUEUE_DEPTH, SAMPLE_RATE, SESSION_EXPIRATION_SECONDS
 )
-from .session import SpeechSession
+from session import SpeechSession
 
 
 class RedisService:

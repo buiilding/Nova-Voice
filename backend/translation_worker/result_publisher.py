@@ -9,7 +9,7 @@ import logging
 from typing import Dict, Any
 import redis.asyncio as redis
 
-from .config import RESULTS_CHANNEL_PREFIX
+from config import RESULTS_CHANNEL_PREFIX
 
 
 class ResultPublisher:

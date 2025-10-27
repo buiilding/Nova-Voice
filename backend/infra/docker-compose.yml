@@ -92,6 +92,12 @@ services:
     networks:
       - speech_network
     deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
       replicas: 1
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:${HEALTH_PORT_STT:-8081}/health"]
@@ -127,6 +133,12 @@ services:
     networks:
       - speech_network
     deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
       replicas: 1
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:${HEALTH_PORT_TRANSLATION:-8082}/health"]

@@ -10,7 +10,7 @@ import numpy as np
 import torch
 import webrtcvad
 
-from .config import WEBRTC_SENSITIVITY, SILERO_SENSITIVITY, INT16_MAX_ABS_VALUE, SAMPLE_RATE
+from config import WEBRTC_SENSITIVITY, SILERO_SENSITIVITY, INT16_MAX_ABS_VALUE, SAMPLE_RATE
 
 
 class VoiceActivityDetector:

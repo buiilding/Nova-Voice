@@ -17,13 +17,13 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-from .config import (
+from config import (
     REDIS_URL, AUDIO_JOBS_STREAM, CONSUMER_GROUP, WORKER_ID,
     HEALTH_PORT, validate_configuration, print_configuration
 )
-from .model_manager import STTModelManager
-from .audio_processor import AudioProcessor
-from .result_publisher import ResultPublisher
+from model_manager import STTModelManager
+from audio_processor import AudioProcessor
+from result_publisher import ResultPublisher
 import sys
 import os
 # Add backend directory to path so shared modules can be found

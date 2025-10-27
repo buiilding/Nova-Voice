@@ -4,12 +4,25 @@ Microservice backend for real-time speech transcription and translation using Fa
 
 ## 🚀 Quick Start
 
+### Configuration Setup
+
+```bash
+# Copy environment configuration from example
+cp .env_example infra/.env
+
+# Edit as needed (optional - defaults are production-ready)
+# nano infra/.env
+```
+
 ### Prerequisites
 - Docker & Docker Compose (recommended)
 - Conda/Miniconda (for local development)
 - Python 3.10+ (via conda environment)
 - 4GB+ RAM (8GB+ recommended)
-- NVIDIA GPU (optional)
+- GPU (optional, but highly recommended for 10x faster performance)
+  - **Windows**: [GPU Setup Guide for Windows](docs/GPU_SETUP_WINDOWS.md)
+  - **Linux**: [GPU Setup Guide for Linux](docs/GPU_SETUP_LINUX.md)
+  - **macOS**: [GPU Setup Guide for macOS](docs/GPU_SETUP_MAC.md)
 
 ### Option 1: Docker (Recommended)
 
@@ -74,7 +87,7 @@ pip install -r requirements.txt
 
 ## 🧪 Health Checks
 
-```bash
+   ```bash
 curl http://localhost:8080/health  # Gateway
 curl http://localhost:8081/health  # STT Worker
 curl http://localhost:8082/health  # Translation Worker
@@ -116,7 +129,7 @@ cd backend
 
 For quick Docker management:
 
-```bash
+   ```bash
 cd backend
 
 # Start services with hot reload
@@ -156,6 +169,12 @@ conda env create -f environment.yml
 
 ## 📚 Documentation
 
+### GPU Setup Guides (⚡ 10x Faster Performance)
+- **[Windows GPU Setup](docs/GPU_SETUP_WINDOWS.md)** - WSL2 + NVIDIA Container Toolkit
+- **[Linux GPU Setup](docs/GPU_SETUP_LINUX.md)** - Native Docker + NVIDIA drivers
+- **[macOS GPU Setup](docs/GPU_SETUP_MAC.md)** - Apple Silicon MPS or Remote GPU
+
+### Core Documentation
 - **[Configuration](docs/CONFIGURATION.md)** - Environment variables
 - **[Development Setup](docs/DEVELOPMENT_SETUP.md)** - Development workflow
 - **[Technical Details](docs/TECHNICAL_README.md)** - Architecture & implementation

@@ -10,7 +10,7 @@ from scipy.signal import resample
 from pydub import AudioSegment
 import io
 
-from .config import (
+from config import (
     SAMPLE_RATE,
     ENABLE_AUDIO_ENHANCEMENT,
     AUDIO_VOLUME_BOOST_DB

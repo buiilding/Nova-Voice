@@ -11,7 +11,7 @@ import logging
 from faster_whisper import WhisperModel
 from typing import Optional, Tuple, List
 
-from .config import (
+from config import (
     MODEL_SIZE, DEVICE, COMPUTE_TYPE, DOWNLOAD_ROOT,
     BEAM_SIZE, BEST_OF
 )
