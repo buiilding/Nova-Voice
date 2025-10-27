@@ -210,19 +210,71 @@ Redis protocol: ~10KB/message
 git clone https://github.com/PeterBui/nova-voice
 cd nova-voice
 
-# Backend (requires Docker)
+# IMPORTANT: Start backend services FIRST
+# Backend provides the AI processing pipeline
+
+# Option A: Docker (Recommended)
 cd backend/infra
 docker-compose up --build
 
-# Frontend (Windows only currently)
-cd frontend
+# Option B: Conda Environment (AI/ML Optimized)
+cd backend
+./setup-conda.sh  # Or: conda env create -f environment.yml
+conda activate nova-voice
+./run-services.sh dev
+
+# Option C: Manual Python Setup
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+redis-server &  # In another terminal
+python -m gateway.gateway &
+python -m stt_worker.worker &
+python -m translation_worker.worker &
+
+# Option D: All-in-one Script (Auto-detects environment)
+cd backend
+./run-services.sh dev  # Handles conda/venv + Redis + all services
+
+# In a NEW terminal, start the frontend
+# Frontend connects to backend for speech processing
+cd ../frontend  # From backend directory
 npm install
 npm run build
 npm run electron
 
-# Verify the pipeline
+# Verify the complete pipeline is working
 curl http://localhost:8080/health/full
 ```
+
+### Backend Setup Options
+
+Choose the best backend setup for your needs:
+
+| Method | Best For | Pros | Cons |
+|--------|----------|------|------|
+| **Docker** | Production, Development | Isolated, Reproducible, Easy scaling | Requires Docker |
+| **Conda** | AI/ML Development | Optimized for PyTorch/CUDA, Auto GPU detection | Conda required |
+| **Virtual Env** | Lightweight development | Simple, No extra tools | Manual dependency management |
+| **Script Runner** | Quick testing | Auto-setup, One command | Less control |
+
+### Prerequisites by Method
+
+**Docker Setup:**
+- Docker & Docker Compose
+- 4GB+ RAM, GPU optional
+
+**Conda Setup:**
+- Miniconda/Anaconda
+- Python 3.10+
+- 4GB+ RAM, GPU recommended
+
+**Manual Setup:**
+- Python 3.10+
+- pip
+- Redis server
+- 4GB+ RAM, GPU optional
 
 ### Architecture Decisions
 

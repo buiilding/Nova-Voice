@@ -31,16 +31,6 @@ RUN pip install --no-cache-dir --timeout=300 --retries=10 -r requirements.txt
 ENV CUDNN_LIBRARY_PATH=/usr/local/lib/python3.10/site-packages/nvidia/cudnn/lib
 ENV LD_LIBRARY_PATH=$CUDNN_LIBRARY_PATH:$LD_LIBRARY_PATH
 
-# Copy shared modules
-COPY ../../shared ./shared/
-
-# Copy application code
-COPY *.py .
-COPY entrypoint.sh .
-
-# Make entrypoint executable
-RUN chmod +x entrypoint.sh
-
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash app \
     && chown -R app:app /app
@@ -52,4 +42,3 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
 
 # Run the application
 CMD ["./entrypoint.sh"]
-
