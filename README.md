@@ -12,7 +12,7 @@
 >
 > **Perfect for learning:** Production-grade patterns, microservices architecture, GPU optimization, real-time streaming, and more.
 >
-> **Areas needing contributors:** GPU acceleration, additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
+> **Areas needing contributors:** Additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
 
 Built by [@PeterBui(github)](https://github.com/buiilding) | [@peterbuiCS(X)](https://x.com/peterbuiCS)
 
@@ -272,20 +272,12 @@ npm run electron
 curl http://localhost:8080/health/full
 ```
 
-### ⚠️ Audio Quality & Limitations
+### ⚠️ Speech Detection Limitation
 
-**Speech Detection Works Best With:**
-- 🎤 **Clean speech** - Quiet environment, minimal background noise
-- 🎧 **Close-mic audio** - Headset or lapel mic for best isolation
-- 🗣️ **Single speaker** - Clear, distinct speech
-
-**Known Limitations:**
-- ❌ **Background music** may cause false speech detections or reduced accuracy
-- ❌ **Loud ambient noise** can interfere with voice activity detection (VAD)
-- ❌ **Multiple simultaneous speakers** may result in garbled transcriptions
-- ❌ **Very quiet speech** may not be detected (adjust VAD sensitivity in config)
-
-**Tip**: For system audio capture with music/games, results will vary. Best used in voice chat scenarios.
+**Background Music/Noise:**
+- ❌ **Speech detection may not work well if there is music in the audio**
+- Background music can interfere with voice activity detection (VAD)
+- May cause false speech detections or reduced transcription accuracy
 
 ---
 

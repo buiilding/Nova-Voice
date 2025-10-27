@@ -218,22 +218,12 @@ curl http://localhost:8081/health  # STT Worker
 curl http://localhost:8082/health  # Translation Worker
 ```
 
-### ⚠️ Audio Quality Considerations
+### ⚠️ Speech Detection Limitation
 
-**Background Music/Noise:**
-- **Speech detection (VAD) works best with clean speech**
-- Background music, loud noise, or multiple speakers may:
-  - Cause false speech detections
-  - Reduce transcription accuracy
-  - Split speech segments incorrectly
-- **Best results**: Quiet environment with clear speech
-- **Tip**: Use headset/microphone close to mouth for better isolation
-
-**Recommended Audio Sources:**
-- 🎤 **Best**: Close-mic headset or lapel mic
-- ✅ **Good**: Desktop microphone in quiet room
-- ⚠️ **Fair**: System audio with minimal background music
-- ❌ **Poor**: System audio with loud music or multiple speakers
+**Background Music:**
+- ❌ **Speech detection may not work well if there is music in the audio**
+- Background music can interfere with voice activity detection (VAD)
+- May cause false speech detections or reduced transcription accuracy
 
 ---
 
