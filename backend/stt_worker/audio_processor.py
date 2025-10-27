@@ -11,7 +11,7 @@ import logging
 from typing import Dict, Any, Optional
 from faster_whisper import WhisperModel
 
-from .config import (
+from config import (
     BEAM_SIZE, INITIAL_PROMPT, SUPPRESS_TOKENS, BEST_OF, VAD_FILTER
 )
 

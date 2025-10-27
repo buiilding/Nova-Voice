@@ -10,7 +10,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 import logging
 from typing import Optional, Tuple
 
-from .config import NLLB_MODEL, DEVICE, MAX_SEQUENCE_LENGTH
+from config import NLLB_MODEL, DEVICE, MAX_SEQUENCE_LENGTH
 
 
 class TranslationModelManager:

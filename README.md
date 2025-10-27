@@ -14,7 +14,7 @@
 >
 > **Areas needing contributors:** GPU acceleration, additional transcription/translation models, cross-platform desktop clients, Kubernetes deployment, performance optimization, and testing.
 
-Built by [@PeterBui](https://github.com/PeterBui) | [@peterbuiCS](https://x.com/peterbuiCS)
+Built by [@PeterBui(github)](https://github.com/buiilding) | [@peterbuiCS(X)](https://x.com/peterbuiCS)
 
 ## 🎯 Project Scope
 
@@ -222,12 +222,20 @@ Redis protocol: ~10KB/message
 git clone https://github.com/PeterBui/nova-voice
 cd nova-voice
 
+# Configure environment (copy from example)
+cp backend/.env_example backend/infra/.env
+
 # IMPORTANT: Start backend services FIRST
 # Backend provides the AI processing pipeline
 
 # Option A: Docker (Recommended)
 cd backend/infra
 docker-compose up --build
+
+# 🚀 For GPU acceleration (10x faster):
+# - Windows: backend/docs/GPU_SETUP_WINDOWS.md
+# - Linux: backend/docs/GPU_SETUP_LINUX.md
+# - macOS: backend/docs/GPU_SETUP_MAC.md
 
 # Option B: Conda Environment (AI/ML Optimized)
 cd backend
@@ -340,6 +348,10 @@ Future Vision:
 - [Translation Service](backend/docs/TRANSLATION.md) - Batching strategies, language detection
 
 ### Performance Tuning
+- **GPU Setup Guides** - **⚡ 10x Faster Performance**
+  - [Windows (WSL2)](backend/docs/GPU_SETUP_WINDOWS.md) - NVIDIA Container Toolkit
+  - [Linux](backend/docs/GPU_SETUP_LINUX.md) - Native Docker + NVIDIA drivers  
+  - [macOS](backend/docs/GPU_SETUP_MAC.md) - Apple Silicon MPS or Remote GPU
 - [GPU Optimization](docs/GPU_OPTIMIZATION.md) - CUDA streams, memory management
 - [Redis Tuning](docs/REDIS_TUNING.md) - Cluster setup, persistence tradeoffs
 - [Latency Analysis](docs/LATENCY.md) - Profiling and bottleneck identification

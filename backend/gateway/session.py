@@ -11,7 +11,7 @@ from typing import Optional, Dict, Any
 from dataclasses import dataclass, asdict
 from enum import Enum
 
-from .config import SESSION_PREFIX, SILENCE_THRESHOLD_SECONDS, SAMPLE_RATE, DEFAULT_SOURCE_LANGUAGE, DEFAULT_TARGET_LANGUAGE
+from config import SESSION_PREFIX, SILENCE_THRESHOLD_SECONDS, SAMPLE_RATE, DEFAULT_SOURCE_LANGUAGE, DEFAULT_TARGET_LANGUAGE
 
 
 class SpeechState(Enum):

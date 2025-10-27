@@ -13,8 +13,8 @@ from typing import Dict, Any, Optional
 import websockets
 from websockets.exceptions import ConnectionClosedError, ConnectionClosedOK, WebSocketException
 
-from .session import SpeechSession
-from .config import DEFAULT_SOURCE_LANGUAGE, DEFAULT_TARGET_LANGUAGE
+from session import SpeechSession
+from config import DEFAULT_SOURCE_LANGUAGE, DEFAULT_TARGET_LANGUAGE
 
 
 class WebSocketHandler:

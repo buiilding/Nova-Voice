@@ -11,7 +11,7 @@ import json
 from aiohttp import web
 import aiohttp_cors
 
-from .config import HEALTH_PORT, MAX_QUEUE_DEPTH
+from config import HEALTH_PORT, MAX_QUEUE_DEPTH
 
 
 class HealthMonitor:

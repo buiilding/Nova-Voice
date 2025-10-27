@@ -60,19 +60,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Import from our modular components
-from .config import (
+from config import (
     REDIS_URL, GATEWAY_PORT, HEALTH_PORT, SILENCE_THRESHOLD_SECONDS, SAMPLE_RATE,
     WEBRTC_SENSITIVITY, SILERO_SENSITIVITY, INT16_MAX_ABS_VALUE, AUDIO_JOBS_STREAM,
     RESULTS_CHANNEL_PREFIX, SESSION_PREFIX, PRE_SPEECH_BUFFER_SECONDS, MINIMUM_NEW_AUDIO_SECONDS, MAX_QUEUE_DEPTH,
     MAX_AUDIO_BUFFER_SECONDS, SEND_FINAL_JOB_ON_MAX_BUFFER,
     ENABLE_AUDIO_ENHANCEMENT, AUDIO_VOLUME_BOOST_DB, SESSION_EXPIRATION_SECONDS
 )
-from .session import SpeechState, SpeechSession
-from .vad import VoiceActivityDetector
-from .audio_processor import AudioProcessor
-from .redis_service import RedisService
-from .websocket_handler import WebSocketHandler
-from .health import HealthMonitor
+from session import SpeechState, SpeechSession
+from vad import VoiceActivityDetector
+from audio_processor import AudioProcessor
+from redis_service import RedisService
+from websocket_handler import WebSocketHandler
+from health import HealthMonitor
 
 
 class GatewayService:
