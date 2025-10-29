@@ -352,23 +352,37 @@ Future Vision:
 ## 📚 Technical Documentation
 
 ### Core Systems
-- [Distributed Architecture](docs/ARCHITECTURE_OVERVIEW.md) - Deep dive into design decisions
-- [Message Flow](backend/docs/MESSAGE_FLOW.md) - Event sourcing and CQRS patterns
-- [Scaling Guide](docs/SCALING.md) - Production deployment strategies
+- [Distributed Architecture](frontend/docs/ARCHITECTURE_OVERVIEW.md) - Deep dive into design decisions
+- [Technical Overview](backend/docs/TECHNICAL_README.md) - System architecture and design patterns
+- [API Reference](backend/docs/API_REFERENCE.md) - Complete API documentation
 
 ### Service Documentation
-- [Gateway Design](backend/docs/GATEWAY_DESIGN.md) - WebSocket handling, session management
-- [STT Pipeline](backend/docs/STT_PIPELINE.md) - Audio processing, model optimization
-- [Translation Service](backend/docs/TRANSLATION.md) - Batching strategies, language detection
+- [Gateway Service](backend/docs/GATEWAY_SERVICE.md) - WebSocket handling, session management
+- [STT Worker](backend/docs/STT_WORKER.md) - Audio processing, model optimization
+- [Translation Worker](backend/docs/TRANSLATION_WORKER.md) - Batching strategies, language detection
+
+### Frontend Documentation
+- [Component Architecture](frontend/docs/COMPONENT_ARCHITECTURE.md) - React component design patterns
+- [Audio Management](frontend/docs/AUDIO_MANAGEMENT.md) - Audio device handling and recording
+- [WebSocket Client](frontend/docs/WEBSOCKET_CLIENT.md) - Real-time communication patterns
+- [Live Subtitles](frontend/docs/LIVE_SUBTITLES.md) - Subtitle rendering and timing
+- [Electron Integration](frontend/docs/ELECTRON_INTEGRATION.md) - Desktop application setup
 
 ### Performance Tuning
 - **GPU Setup Guides** - **⚡ 10x Faster Performance**
   - [Windows (WSL2)](backend/docs/GPU_SETUP_WINDOWS.md) - NVIDIA Container Toolkit
-  - [Linux](backend/docs/GPU_SETUP_LINUX.md) - Native Docker + NVIDIA drivers  
+  - [Linux](backend/docs/GPU_SETUP_LINUX.md) - Native Docker + NVIDIA drivers
   - [macOS](backend/docs/GPU_SETUP_MAC.md) - Apple Silicon MPS or Remote GPU
-- [GPU Optimization](docs/GPU_OPTIMIZATION.md) - CUDA streams, memory management
-- [Redis Tuning](docs/REDIS_TUNING.md) - Cluster setup, persistence tradeoffs
-- [Latency Analysis](docs/LATENCY.md) - Profiling and bottleneck identification
+- [Voice Typing Engine](frontend/docs/VOICE_TYPING_ENGINE.md) - Real-time transcription engine
+- [Build & Deployment](frontend/docs/BUILD_DEPLOYMENT.md) - Production build strategies
+
+### Development Setup
+- [Backend Development](backend/docs/DEVELOPMENT_SETUP.md) - Environment setup and debugging
+- [Frontend Development](frontend/docs/DEVELOPMENT_SETUP.md) - Development workflow and tooling
+- [Configuration Guide](backend/docs/CONFIGURATION.md) - Service configuration options
+- [Shared Modules](backend/docs/SHARED_MODULES.md) - Common utilities and patterns
+- [Automatic Typing](backend/docs/AUTOMATIC_TYPING_README.md) - Type inference and validation
+- [Quick Start Guide](backend/docs/QUICK_START.md) - Getting started quickly
 
 ## 🤝 Contributing
 
