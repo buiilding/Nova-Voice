@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Dark mode colors - using consistent --color- prefix for all semantic colors */
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.985 0 0);
+  --color-card: oklch(0.145 0 0);
+  --color-card-foreground: oklch(0.985 0 0);
+  --color-popover: oklch(0.145 0 0);
+  --color-popover-foreground: oklch(0.985 0 0);
+  --color-primary: oklch(0.985 0 0);
+  --color-primary-foreground: oklch(0.205 0 0);
+  --color-secondary: oklch(0.269 0 0);
+  --color-secondary-foreground: oklch(0.985 0 0);
+  --color-muted: oklch(0.269 0 0);
+  --color-muted-foreground: oklch(0.708 0 0);
+  --color-accent: oklch(0.269 0 0);
+  --color-accent-foreground: oklch(0.985 0 0);
+  --color-destructive: oklch(0.396 0.141 25.723);
+  --color-destructive-foreground: oklch(0.637 0.237 25.331);
+  --color-border: oklch(0.269 0 0);
+  --color-input: oklch(0.269 0 0);
+  --color-ring: oklch(0.439 0 0);
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    outline-color: var(--color-ring);
+  }
+  body {
+    color: var(--color-foreground);
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    width: max-content;
+    height: max-content;
+  }
+  html {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    width: max-content;
+    height: max-content;
+  }
+  /* Root app container uses content-based sizing */
+  #__next {
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    height: max-content;
+  }
+  
+  /* Dynamic container for content-based sizing */
+  .dynamic-container {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Draggable regions for Cluely-style window dragging */
+  .drag-region {
+    -webkit-app-region: drag;
+    user-select: none;
+  }
+  
+  .no-drag-region {
+    -webkit-app-region: no-drag;
+  }
+  
+  /* Ensure interactive elements within drag regions are not draggable */
+  .drag-region button,
+  .drag-region select,
+  .drag-region input,
+  .drag-region [role="button"],
+  .drag-region [role="combobox"],
+  .drag-region [role="option"],
+  .drag-region [role="listbox"],
+  .no-drag-region,
+  .no-drag-region * {
+    -webkit-app-region: no-drag;
+  }
+}
+
